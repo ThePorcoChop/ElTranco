@@ -1,0 +1,195 @@
+{
+  "aviso": {
+    "mostrar": true,
+    "texto": "Versión de prueba: la carta, los precios, el horario y el teléfono son de ejemplo."
+  },
+  "horarioResumen": "[Horario por confirmar]",
+  "cinta": [
+    "Pasa el tranco, que estás en tu casa",
+    "Café y tostá por la mañana",
+    "Tapa con cada consumición",
+    "Fútbol en la tele",
+    "A los pies de Sierra Nevada"
+  ],
+  "horario": [
+    {
+      "dia": "Lunes",
+      "horas": "Cerrado"
+    },
+    {
+      "dia": "Martes",
+      "horas": "8:00 – 23:00"
+    },
+    {
+      "dia": "Miércoles",
+      "horas": "8:00 – 23:00"
+    },
+    {
+      "dia": "Jueves",
+      "horas": "8:00 – 23:00"
+    },
+    {
+      "dia": "Viernes",
+      "horas": "8:00 – 1:00"
+    },
+    {
+      "dia": "Sábado",
+      "horas": "9:00 – 1:00"
+    },
+    {
+      "dia": "Domingo",
+      "horas": "9:00 – 23:30"
+    }
+  ],
+  "platosDelDia": {
+    "mostrar": true,
+    "fecha": "2026-11-01",
+    "titulo": "Hoy en la pizarra",
+    "nota": "Con cada caña o vino, tapa de regalo. Como manda Granada.",
+    "platos": [
+      {
+        "nombre": "[Ejemplo] Migas con su uva y su granada",
+        "descripcion": "Las del día de lluvia.",
+        "precio": 4
+      },
+      {
+        "nombre": "[Ejemplo] Puchero de hinojos",
+        "descripcion": "Hasta que se acabe la olla.",
+        "precio": 5
+      },
+      {
+        "nombre": "[Ejemplo] Pestiños de la casa",
+        "descripcion": "",
+        "precio": 2.5
+      }
+    ]
+  },
+  "carta": [
+    {
+      "categoria": "Tapas",
+      "icono": "tapa",
+      "nota": "[Confirmar] Una de regalo con cada bebida; estas, sueltas.",
+      "platos": [
+        {
+          "nombre": "[Ejemplo] Papas a lo pobre",
+          "descripcion": "Con pimiento y huevo.",
+          "precio": 3
+        },
+        {
+          "nombre": "[Ejemplo] Croquetas caseras",
+          "descripcion": "De puchero, como las de casa.",
+          "precio": 3.5,
+          "destacado": true
+        },
+        {
+          "nombre": "[Ejemplo] Remojón granadino",
+          "descripcion": "Naranja, bacalao y aceituna.",
+          "precio": 3
+        },
+        {
+          "nombre": "[Ejemplo] Tortilla de patatas",
+          "descripcion": "",
+          "precio": 2.5
+        }
+      ]
+    },
+    {
+      "categoria": "Raciones",
+      "icono": "racion",
+      "nota": "Para compartir en la mesa.",
+      "platos": [
+        {
+          "nombre": "[Ejemplo] Plato alpujarreño",
+          "descripcion": "Papas, huevo, lomo, morcilla y chorizo.",
+          "precio": 12,
+          "destacado": true
+        },
+        {
+          "nombre": "[Ejemplo] Choto al ajillo",
+          "descripcion": "",
+          "precio": 14
+        },
+        {
+          "nombre": "[Ejemplo] Jamón de Trevélez",
+          "descripcion": "Cortado a cuchillo.",
+          "precio": 16
+        },
+        {
+          "nombre": "[Ejemplo] Habas con jamón",
+          "descripcion": "",
+          "precio": 9
+        }
+      ]
+    },
+    {
+      "categoria": "Bebidas",
+      "icono": "bebida",
+      "nota": "",
+      "platos": [
+        {
+          "nombre": "Caña",
+          "descripcion": "",
+          "precio": 1.5
+        },
+        {
+          "nombre": "Tercio",
+          "descripcion": "",
+          "precio": 2.2
+        },
+        {
+          "nombre": "Vino de la tierra (copa)",
+          "descripcion": "Tinto o blanco.",
+          "precio": 1.8
+        },
+        {
+          "nombre": "Refresco",
+          "descripcion": "",
+          "precio": 2
+        },
+        {
+          "nombre": "Café",
+          "descripcion": "Solo, cortado o con leche.",
+          "precio": 1.3
+        }
+      ]
+    },
+    {
+      "categoria": "Postres",
+      "icono": "postre",
+      "nota": "",
+      "platos": [
+        {
+          "nombre": "[Ejemplo] Arroz con leche",
+          "descripcion": "",
+          "precio": 3.5,
+          "destacado": true
+        },
+        {
+          "nombre": "[Ejemplo] Piononos",
+          "descripcion": "",
+          "precio": 3
+        }
+      ]
+    }
+  ],
+  "eventos": [
+    {
+      "fecha": "2026-11-08",
+      "titulo": "[Ejemplo] Partido en la tele",
+      "descripcion": "Ven a verlo con nosotros. Tapa especial durante el partido.",
+      "tipo": "Fútbol"
+    },
+    {
+      "fecha": "2026-12-06",
+      "titulo": "[Ejemplo] Migas para todos",
+      "descripcion": "Si llueve, migas en la barra. Lo de siempre en el pueblo.",
+      "tipo": "Comida"
+    },
+    {
+      "fecha": "2026-12-24",
+      "titulo": "[Ejemplo] Nochebuena en El Tranco",
+      "descripcion": "Abrimos por la mañana para el aperitivo. Reserva por WhatsApp.",
+      "tipo": "Navidad"
+    }
+  ]
+}

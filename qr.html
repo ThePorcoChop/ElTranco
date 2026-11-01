@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- DEMO: que Google no la indexe todavía. QUITAR esta línea al publicar la web definitiva. -->
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Página para el código QR de las mesas y la barra: solo la carta.
+       Usa el mismo datos.json que la web, así que no hay que tocar nada aquí
+       salvo Café Bar El Tranco y el enlace de reseña. -->
+  <title>Carta · Café Bar El Tranco</title>
+  <meta name="description" content="Carta de Café Bar El Tranco en Albuñán: tapas, raciones, bebidas y postres.">
+  <meta name="theme-color" content="#2a1f17">
+  <link rel="icon" href="img/icono.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500&family=Alegreya+Sans:wght@400;500;700;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="pagina-qr">
+  <header class="qr-cabecera">
+    <p class="mano">¡Bienvenido a la mesa!</p>
+    <h1>Café Bar El Tranco</h1>
+    <p>Nuestra carta · se pide en la barra</p>
+  </header>
+  <div class="cenefa" aria-hidden="true"></div>
+
+  <main class="contenedor" style="margin-top:24px">
+    <div class="aviso aviso--caja" data-aviso hidden>
+      <p><span class="aviso__icono" aria-hidden="true">!</span> <strong>Aviso:</strong> <span data-aviso-texto></span></p>
+    </div>
+
+    <!-- Platos del día (se oculta solo si no hay) -->
+    <section id="del-dia" data-del-dia>
+      <div class="pizarra">
+        <p class="pizarra__ante">Lo que ha salido hoy de la cocina</p>
+        <h2 class="pizarra__titulo" data-del-dia-titulo>Hoy en la pizarra</h2>
+        <p class="pizarra__fecha" data-del-dia-fecha></p>
+        <ul class="pizarra__lista" data-del-dia-lista></ul>
+        <p class="pizarra__nota" data-del-dia-nota></p>
+      </div>
+    </section>
+
+    <nav class="carta__categorias" aria-label="Categorías de la carta" data-carta-categorias></nav>
+    <div class="hoja">
+      <div class="carta" data-carta>
+        <p class="cargando">Cargando la carta…</p>
+      </div>
+      <footer class="hoja__pie">
+        <p><span class="sello-mini" aria-hidden="true">★</span> <span class="mano">= de la casa, lo que más se pide</span></p>
+        <p>Precios con IVA incluido. Pregunta por alérgenos en la barra.</p>
+      </footer>
+    </div>
+
+    <p class="centrado" style="margin-top:36px">
+      <span class="mano" style="display:block;font-size:1.6rem;color:var(--color-principal)">¿Te ha gustado?</span>
+      <!-- SUSTITUIR: mismo enlace de reseña que en index.html -->
+      <a class="boton boton--principal" href="https://g.page/r/[ID-RESEÑA-GOOGLE]/review" target="_blank" rel="noopener">Déjanos tu reseña en Google</a>
+    </p>
+  </main>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

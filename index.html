@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- DEMO: que Google no la indexe todavía. QUITAR esta línea al publicar la web definitiva. -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!--
+    ============================================================
+    PLANTILLA WEB BAR DE PUEBLO
+    Busca y sustituye en TODO el proyecto (index.html y qr.html):
+      Café Bar El Tranco   → nombre real
+      Albuñán           → pueblo
+      Granada        → provincia
+      Calle Real, 52        → calle y número
+      18518               → código postal
+      [AÑO]              → año de apertura
+      [NOMBRES]          → quién lleva el bar
+      600000000          → teléfono (sin espacios)
+      600 00 00 00       → teléfono (como se lee)
+      34600000000        → WhatsApp con prefijo 34, sin + ni espacios
+      [TU-DOMINIO]       → dominio, p. ej. barelpueblo.es
+      [USUARIO-INSTAGRAM], [PAGINA-FACEBOOK]
+      [ID-RESEÑA-GOOGLE] → ver comentario en la sección Reseñas
+    Lo que cambia a menudo (carta, platos del día, eventos,
+    horario, avisos, frases de la cinta) NO está aquí: está en datos.json.
+    ============================================================
+  -->
+
+  <title>Café Bar El Tranco · Bar en Albuñán</title>
+  <meta name="description" content="Café Bar El Tranco, bar de Albuñán. Tapas caseras, raciones y buen ambiente. Consulta la carta, el horario y cómo llegar.">
+  <meta name="theme-color" content="#2a1f17">
+  <link rel="canonical" href="https://[TU-DOMINIO]/">
+  <link rel="icon" href="img/icono.svg" type="image/svg+xml">
+
+  <!-- Open Graph: lo que se ve al compartir el enlace por WhatsApp o redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Café Bar El Tranco · Bar en Albuñán">
+  <meta property="og:description" content="Tapas caseras, raciones y buen ambiente en Albuñán.">
+  <meta property="og:url" content="https://[TU-DOMINIO]/">
+  <!-- SUSTITUIR: sube una foto JPG de 1200x630 px con este nombre -->
+  <meta property="og:image" content="https://[TU-DOMINIO]/img/og-imagen.jpg">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Datos para Google (schema.org). Sustituye los mismos placeholders. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarOrPub",
+    "name": "Café Bar El Tranco",
+    "url": "https://[TU-DOMINIO]/",
+    "image": "https://[TU-DOMINIO]/img/og-imagen.jpg",
+    "telephone": "+34600000000",
+    "priceRange": "€",
+    "servesCuisine": "Tapas",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Real, 52",
+      "addressLocality": "Albuñán",
+      "addressRegion": "Granada",
+      "postalCode": "18518",
+      "addressCountry": "ES"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday"], "opens": "08:00", "closes": "23:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "01:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "01:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "23:30" }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/[USUARIO-INSTAGRAM]/",
+      "https://www.facebook.com/[PAGINA-FACEBOOK]"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500&family=Alegreya+Sans:wght@400;500;700;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <a class="saltar" href="#carta">Saltar a la carta</a>
+
+  <!-- ===== MENÚ FIJO (transparente sobre la portada, sólido al bajar) ===== -->
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <!-- SUSTITUIR: si hay logo, cambia el contenido por <img src="img/logo.png" alt="Café Bar El Tranco"> -->
+      <a class="marca" href="#inicio">
+        <svg class="marca__icono" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 27V13a8 8 0 0 1 16 0v14"/><path d="M16 5v22"/><path d="M5 27h22"/><circle cx="13.5" cy="18" r=".8"/><circle cx="18.5" cy="18" r=".8"/></svg>
+        <span><small>Café Bar</small>El Tranco</span>
+      </a>
+      <button class="menu-boton" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="menu" class="menu" aria-label="Principal">
+        <a href="#carta">Carta</a>
+        <a href="#del-dia">Del día</a>
+        <a href="#local">El local</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#horario">Horario</a>
+        <a href="#donde">Dónde estamos</a>
+        <a class="menu__reservar" href="https://wa.me/34600000000?text=Hola,%20quer%C3%ADa%20reservar%20mesa" target="_blank" rel="noopener">Reservar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== 1. PORTADA ===== -->
+    <section id="inicio" class="portada">
+      <!-- SUSTITUIR: foto grande del local (img/portada.jpg, mínimo 1600 px de ancho) -->
+      <img class="portada__foto" src="img/portada.svg" alt="[Foto del local: fachada o barra de Café Bar El Tranco]" fetchpriority="high">
+
+
+      <div class="portada__contenido contenedor">
+        <p class="portada__saludo mano" data-saludo>¡Bienvenidos!</p>
+        <p class="portada__pueblo"><span>Café Bar</span> · <span>Albuñán, Granada</span></p>
+        <h1>El Tranco</h1>
+        <svg class="trazo" viewBox="0 0 300 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12c40-7 90-9 140-6 50 2 100 3 154-4"/></svg>
+        <!-- PROPUESTA de lema (el tranco es el umbral de la puerta). Confirmar con los dueños. -->
+        <p class="portada__lema">«Pasa el tranco, que estás en tu casa»</p>
+
+        <!-- Se calcula solo con el horario de datos.json -->
+        <p class="estado" data-estado>
+          <span class="estado__punto" aria-hidden="true"></span>
+          <span data-estado-texto data-dato="horarioResumen">Consulta nuestro horario</span>
+        </p>
+
+        <div class="botones">
+          <!-- SUSTITUIR: enlace de Google Maps (en Maps: Compartir → Copiar enlace) -->
+          <a class="boton boton--principal" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cafe+Bar+El+Tranco,+Calle+Real+52,+18518+Albu%C3%B1%C3%A1n,+Granada" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Cómo llegar
+          </a>
+          <a class="boton boton--claro" href="tel:+34600000000">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>
+            Llamar
+          </a>
+        </div>
+      </div>
+
+      <!-- Silueta de Sierra Nevada, que se ve desde Albuñán -->
+      <svg class="portada__sierra" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+        <path class="sierra-fondo" d="M0 80V48l90-14 70 10 110-30 80 16 120-26 70 14 100-12 90 18 130-22 90 14 120-20 110 22 90-8 120 20V80z"/>
+        <path class="sierra-nieve" d="M380 4l-30 10 22-2 8 6 12-6 18 4zM770 2l-34 12 20-2 14 6 10-6 22 2zM1150 6l-26 10 16 0 10 5 12-6 14 3z"/>
+        <path class="sierra-frente" d="M0 80V62l120-10 90 8 140-18 100 12 130-20 110 16 120-10 140 18 130-14 110 10 120-8 130 14V80z"/>
+      </svg>
+
+      <a class="portada__bajar" href="#carta" aria-label="Ver la carta">
+        <span class="mano">la carta</span>
+        <svg viewBox="0 0 24 40" aria-hidden="true"><path d="M12 2c-3 10 3 20 0 34M5 29l7 8 7-8"/></svg>
+      </a>
+    </section>
+
+    <!-- Cinta que se desliza. Las frases se cambian en datos.json → "cinta" -->
+    <div class="cinta" data-cinta hidden>
+      <div class="cinta__pista" data-cinta-pista></div>
+    </div>
+
+    <!-- Aviso destacado (festivos, cierres). Se rellena desde datos.json → "aviso" -->
+    <div class="aviso" data-aviso hidden>
+      <p class="contenedor"><span class="aviso__icono" aria-hidden="true">!</span> <strong>Aviso:</strong> <span data-aviso-texto></span></p>
+    </div>
+
+    <!-- ===== 2. CARTA ===== (se rellena desde datos.json → "carta") -->
+    <section id="carta" class="seccion seccion--carta">
+      <div class="contenedor">
+        <header class="encabezado revelar">
+          <p class="antetitulo mano">Para picar, compartir y repetir</p>
+          <h2 class="titulo">La carta</h2>
+          <span class="adorno" aria-hidden="true"></span>
+        </header>
+
+        <nav class="carta__categorias" aria-label="Categorías de la carta" data-carta-categorias></nav>
+
+        <div class="hoja">
+          <div class="carta" data-carta>
+            <p class="cargando">Cargando la carta…</p>
+          </div>
+          <footer class="hoja__pie">
+            <p><span class="sello-mini" aria-hidden="true">★</span> <span class="mano">= de la casa, lo que más se pide</span></p>
+            <p>Precios con IVA incluido. Pregunta por alérgenos en la barra, te lo contamos todo.</p>
+          </footer>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3. PLATOS / TAPAS DEL DÍA ===== (datos.json → "platosDelDia") -->
+    <section id="del-dia" class="seccion seccion--pizarra" data-del-dia>
+      <div class="contenedor">
+        <div class="pizarra revelar">
+          <span class="pizarra__clavo" aria-hidden="true"></span>
+          <p class="pizarra__ante">Lo que ha salido hoy de la cocina</p>
+          <h2 class="pizarra__titulo" data-del-dia-titulo>Hoy en la pizarra</h2>
+          <p class="pizarra__fecha" data-del-dia-fecha></p>
+          <ul class="pizarra__lista" data-del-dia-lista></ul>
+          <p class="pizarra__nota" data-del-dia-nota></p>
+          <!-- Dibujito de tiza -->
+          <svg class="pizarra__dibujo" viewBox="0 0 80 60" aria-hidden="true"><path d="M14 18h26l-3 34H17z"/><path d="M15 26h24"/><path d="M14 18c-3-7 6-10 9-5 3-5 11-4 12 1 4-1 6 3 4 5"/><path d="M52 40c4-6 12-6 16 0M56 34l2-6M64 34l-2-6"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <div class="cenefa" aria-hidden="true"></div>
+
+    <!-- ===== 4. EL LOCAL / NUESTRA HISTORIA ===== -->
+    <section id="local" class="seccion seccion--historia">
+      <div class="contenedor historia">
+        <div class="historia__texto revelar">
+          <p class="antetitulo mano">Quiénes somos</p>
+          <h2 class="titulo">Nuestra historia</h2>
+          <!-- SUSTITUIR: 2-3 frases de los dueños: quién lo lleva, desde cuándo, qué lo hace especial -->
+          <!-- TEXTO PROVISIONAL: cambiar por la historia real que cuenten los dueños -->
+          <p class="historia__entrada">En plena Calle Real de Albuñán, a los pies de Sierra Nevada, abrimos El Tranco con una idea sencilla: que cruzar nuestra puerta sea como entrar en casa.</p>
+          <p>Por eso el nombre: el <em>tranco</em> es el umbral de la puerta, y aquí lo pasa todo el pueblo. Para el café de la mañana, la caña con su tapa, el partido o la charla de después de cenar.</p>
+          <p class="firma mano">— [NOMBRES], <span>tus anfitriones</span></p>
+          <ul class="datos-curiosos">
+            <li><strong>2026</strong><span>abrimos la puerta</span></li>
+            <li><strong>Nº 52</strong><span>de la Calle Real</span></li>
+            <li><strong>1</strong><span>tapa con cada caña</span></li>
+          </ul>
+        </div>
+
+        <!-- SUSTITUIR: 4-6 fotos reales (800 px de ancho basta). Cambia el alt y el pie de foto. -->
+        <ul class="galeria">
+          <li class="polaroid revelar"><figure><img src="img/local-1.svg" alt="[Foto: la barra del bar]" loading="lazy" width="800" height="600"><figcaption>La barra</figcaption></figure></li>
+          <li class="polaroid revelar"><figure><img src="img/local-2.svg" alt="[Foto: mesas del interior]" loading="lazy" width="800" height="600"><figcaption>Dentro, calentito</figcaption></figure></li>
+          <li class="polaroid revelar"><figure><img src="img/local-3.svg" alt="[Foto: fachada del bar]" loading="lazy" width="800" height="600"><figcaption>Nuestra puerta</figcaption></figure></li>
+          <li class="polaroid revelar"><figure><img src="img/local-4.svg" alt="[Foto: la terraza]" loading="lazy" width="800" height="600"><figcaption>La terraza</figcaption></figure></li>
+          <li class="polaroid revelar"><figure><img src="img/local-5.svg" alt="[Foto: uno de nuestros platos]" loading="lazy" width="800" height="600"><figcaption>¡Oído cocina!</figcaption></figure></li>
+          <li class="polaroid revelar"><figure><img src="img/local-6.svg" alt="[Foto: ambiente del bar]" loading="lazy" width="800" height="600"><figcaption>Los de siempre</figcaption></figure></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 5. EVENTOS Y NOVEDADES ===== (datos.json → "eventos")
+         Se oculta sola si no hay eventos futuros. -->
+    <section id="eventos" class="seccion seccion--alterna" data-eventos>
+      <div class="contenedor">
+        <header class="encabezado revelar">
+          <p class="antetitulo mano">Apúntatelo en el calendario</p>
+          <h2 class="titulo">Eventos y novedades</h2>
+          <span class="adorno" aria-hidden="true"></span>
+        </header>
+        <ul class="eventos" data-eventos-lista></ul>
+      </div>
+    </section>
+
+    <!-- ===== 6. HORARIO ===== (datos.json → "horario" y "aviso") -->
+    <section id="horario" class="seccion">
+      <div class="contenedor contenedor--estrecho">
+        <header class="encabezado revelar">
+          <p class="antetitulo mano">Te esperamos</p>
+          <h2 class="titulo">Horario</h2>
+          <span class="adorno" aria-hidden="true"></span>
+        </header>
+        <div class="aviso aviso--caja" data-aviso hidden>
+          <p><span class="aviso__icono" aria-hidden="true">!</span> <strong>Aviso:</strong> <span data-aviso-texto></span></p>
+        </div>
+        <div class="cartel revelar">
+          <span class="cartel__cuerda" aria-hidden="true"></span>
+          <p class="estado estado--cartel" data-estado>
+            <span class="estado__punto" aria-hidden="true"></span>
+            <span data-estado-texto>Consulta nuestro horario</span>
+          </p>
+          <table class="horario">
+            <caption class="visualmente-oculto">Horario de apertura por días</caption>
+            <tbody data-horario></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7. DÓNDE ESTAMOS ===== -->
+    <section id="donde" class="seccion seccion--alterna">
+      <div class="contenedor donde">
+        <div class="donde__datos revelar">
+          <p class="antetitulo mano">Sin pérdida</p>
+          <h2 class="titulo">Dónde estamos</h2>
+          <address class="ficha">
+            <span class="ficha__fila">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span><strong>Café Bar El Tranco</strong><br>Calle Real, 52<br>18518 Albuñán (Granada)</span>
+            </span>
+            <span class="ficha__fila">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>
+              <a href="tel:+34600000000">600 00 00 00</a>
+            </span>
+          </address>
+          <!-- SUSTITUIR: una pista para encontrarlo -->
+          <p class="pista mano">En plena Calle Real, sin pérdida</p>
+          <div class="botones">
+            <a class="boton boton--principal" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cafe+Bar+El+Tranco,+Calle+Real+52,+18518+Albu%C3%B1%C3%A1n,+Granada" target="_blank" rel="noopener">Cómo llegar</a>
+            <a class="boton boton--borde" href="tel:+34600000000">Llamar</a>
+          </div>
+        </div>
+        <!-- SUSTITUIR: en Google Maps busca el bar → Compartir → Insertar un mapa → copia solo la URL del src -->
+        <div class="mapa revelar">
+          <iframe src="https://www.google.com/maps?q=Cafe+Bar+El+Tranco,+Calle+Real+52,+18518+Albu%C3%B1%C3%A1n,+Granada&amp;output=embed" title="Mapa de cómo llegar a Café Bar El Tranco" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 8. RESEÑAS ===== -->
+    <section id="resenas" class="seccion seccion--resenas">
+      <div class="contenedor contenedor--estrecho centrado revelar">
+        <p class="estrellas" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></p>
+        <h2 class="titulo">¿Te hemos tratado bien?</h2>
+        <p>Acabamos de abrir y cada reseña en Google nos ayuda a que nos conozcan en el Marquesado y en toda la comarca. Son dos minutos y nos alegras el día.</p>
+        <div class="resenas__accion">
+          <span class="resenas__nota mano" aria-hidden="true">¡aquí!</span>
+          <svg class="resenas__flecha" viewBox="0 0 80 50" aria-hidden="true"><path d="M4 8c20-4 46 2 60 26M54 34l10 2 2-11"/></svg>
+          <!-- SUSTITUIR: en Google Business Profile → "Pedir reseñas" → copia el enlace (g.page/r/XXXX/review) -->
+          <a class="boton boton--crema boton--grande" href="https://g.page/r/[ID-RESEÑA-GOOGLE]/review" target="_blank" rel="noopener">Déjanos tu reseña en Google</a>
+        </div>
+        <p class="mano resenas__gracias">¡Gracias de corazón!</p>
+      </div>
+    </section>
+
+    <!-- ===== 9. CONTACTO Y REDES ===== -->
+    <section id="contacto" class="seccion">
+      <div class="contenedor contacto">
+        <div class="contacto__whatsapp revelar">
+          <p class="antetitulo mano">Cumpleaños, peñas, comidas de grupo…</p>
+          <h2 class="titulo">Reserva por WhatsApp</h2>
+          <p>Escríbenos y te guardamos mesa. Para grupos grandes, mejor con un par de días de antelación.</p>
+          <a class="boton boton--whatsapp boton--grande" href="https://wa.me/34600000000?text=Hola,%20quer%C3%ADa%20reservar%20mesa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 32 32" aria-hidden="true" class="relleno"><use href="#icono-whatsapp"/></svg>
+            Escribir por WhatsApp
+          </a>
+        </div>
+        <div class="contacto__redes revelar">
+          <p class="mano contacto__sigue">Y síguenos, que subimos las tapas del día:</p>
+          <ul class="redes">
+            <li><a class="red red--instagram" href="https://www.instagram.com/[USUARIO-INSTAGRAM]/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg>
+              <span>Instagram<small>@[USUARIO-INSTAGRAM]</small></span></a></li>
+            <li><a class="red red--facebook" href="https://www.facebook.com/[PAGINA-FACEBOOK]" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg>
+              <span>Facebook<small>[PAGINA-FACEBOOK]</small></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 10. PIE DE PÁGINA ===== -->
+  <div class="cenefa" aria-hidden="true"></div>
+  <footer class="pie">
+    <div class="contenedor">
+      <p class="pie__despedida mano">¡Hasta la próxima ronda!</p>
+      <p class="pie__marca">Café Bar El Tranco</p>
+      <p>Calle Real, 52 · Albuñán · <a href="tel:+34600000000">600 00 00 00</a></p>
+      <nav class="pie__enlaces" aria-label="Pie de página">
+        <a href="#carta">Carta</a>
+        <a href="#horario">Horario</a>
+        <a href="#donde">Cómo llegar</a>
+        <a href="https://www.instagram.com/[USUARIO-INSTAGRAM]/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+      <p class="pie__legal">© <span data-anio>2026</span> Café Bar El Tranco · Hecho con cariño en Albuñán</p>
+    </div>
+  </footer>
+
+  <!-- Icono de WhatsApp reutilizable -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="icono-whatsapp" viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8C29 8.7 23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.2-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6C4.9 9.8 9.9 5 16 5s11.1 4.8 11.1 10.8S22.1 26.4 16 26.4zm6.1-8c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.7-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1.1-2.5c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.6-.3z"/></symbol>
+  </svg>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a class="whatsapp-flotante" href="https://wa.me/34600000000?text=Hola,%20quer%C3%ADa%20reservar%20mesa" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <span class="whatsapp-flotante__bocadillo mano" aria-hidden="true">¿Reservamos?</span>
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><use href="#icono-whatsapp"/></svg>
+  </a>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

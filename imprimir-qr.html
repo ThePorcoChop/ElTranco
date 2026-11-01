@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Herramienta interna (no se enlaza desde la web): genera los QR para imprimir.
+       SUSTITUIR las dos URLs de abajo y pulsar Ctrl+P. -->
+  <title>QR para imprimir</title>
+  <meta name="robots" content="noindex">
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 24px 16px; background: #fff; color: #2b1d14; }
+    .hojas { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); max-width: 800px; margin: 0 auto; }
+    .tarjeta { border: 3px solid #9c3d22; border-radius: 16px; padding: 24px; text-align: center; break-inside: avoid; }
+    .tarjeta h2 { margin: 0 0 4px; font-family: Georgia, serif; }
+    .tarjeta p { margin: 0 0 16px; }
+    .qr { display: inline-block; }
+    .url { font-size: .8rem; word-break: break-all; color: #6b5546; margin-top: 12px; }
+    @media print { .no-imprimir { display: none; } }
+  </style>
+</head>
+<body>
+  <p class="no-imprimir" style="text-align:center">Revisa las URLs y pulsa <strong>Ctrl+P</strong> para imprimir.</p>
+  <div class="hojas">
+    <div class="tarjeta">
+      <h2>Nuestra carta</h2>
+      <p>Escanea y mira la carta en tu móvil</p>
+      <div class="qr" data-url="https://[TU-DOMINIO]/qr.html"></div>
+      <p class="url"></p>
+    </div>
+    <div class="tarjeta">
+      <h2>¿Te ha gustado?</h2>
+      <p>Déjanos tu reseña en Google</p>
+      <div class="qr" data-url="https://g.page/r/[ID-RESEÑA-GOOGLE]/review"></div>
+      <p class="url"></p>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    document.querySelectorAll('.qr').forEach(caja => {
+      new QRCode(caja, { text: caja.dataset.url, width: 220, height: 220, correctLevel: QRCode.CorrectLevel.M });
+      caja.nextElementSibling.textContent = caja.dataset.url;
+    });
+  </script>
+</body>
+</html>
